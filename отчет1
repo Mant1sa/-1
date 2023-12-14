@@ -47,3 +47,180 @@
     <script src="script.js"></script>
 </body>
 </html>
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+}
+
+section {
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    font-size: 36px;
+}
+
+#main-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+p {
+    font-size: 20px;
+    line-height: 1.6;
+    color: #555;
+}
+
+#user-greeting {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+#tasks-menu {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#tasks-menu h2 {
+    font-size: 28px;
+    color: #333;
+}
+
+#tasks-menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+#tasks-menu li {
+    font-size: 22px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+#tasks-menu li:hover {
+    color: #007bff;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://kartinki.pics/uploads/posts/2021-07/1625737695_48-kartinkin-com-p-krasivie-oboi-kosmos-krasivie-53.jpg') no-repeat center center fixed;
+    background-size: cover;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+.overlay-content {
+    text-align: center;
+}
+
+.overlay-content h2 {
+    font-size: 48px;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    border: 2px solid #fff;
+    padding: 10px;
+}
+
+.overlay-content p {
+    font-size: 24px;
+    color: #fff;
+    margin-top: 20px;
+}
+
+.overlay-background {
+    background: none;
+}
+function askName() {
+    let userName = prompt("Как вас зовут?");
+    if (userName) {
+        document.getElementById('user-greeting').innerText = `Привет, ${userName}!`;
+        localStorage.setItem('userName', userName);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    let storedName = localStorage.getItem('userName');
+    if (storedName) {
+        document.getElementById('user-greeting').innerText = `Привет, ${storedName}!`;
+    }
+});
+
+function calculateTriangleArea() {
+    let base = prompt("Введите основание треугольника:");
+    let height = prompt("Введите высоту треугольника:");
+    let area = 0.5 * base * height;
+    alert(`Площадь треугольника: ${area}`);
+}
+
+function compareStringLength() {
+    let str1 = prompt("Введите первую строку:");
+    let str2 = prompt("Введите вторую строку:");
+
+    let result = str1.length === str2.length;
+    alert(`Длины строк совпадают: ${result}`);
+}
+
+function analyzeArray() {
+    let userArray = prompt("Введите 5 элементов через запятую:").split(',');
+    let min = Math.min(...userArray);
+    let max = Math.max(...userArray);
+
+    alert(`Минимальное значение: ${min}, Максимальное значение: ${max}`);
+}
+
+let timer;
+
+function startTimer() {
+    let startTime = new Date().getTime();
+    let timerContainer = document.getElementById('timer-container');
+
+    timer = setInterval(function() {
+        let currentTime = new Date().getTime();
+        let elapsedTime = Math.floor((currentTime - startTime) / 1000);
+
+        timerContainer.innerText = `Прошло времени: ${elapsedTime} секунд`;
+    }, 1000);
+}
+
+function stopTimer() {
+    clearInterval(timer);
+}
+
+function runQuiz() {
+    // ваш код для теста
+}
+
+function showOverlay() {
+    let overlay = document.getElementById('overlay');
+    overlay.style.display = 'flex';
+
+    document.body.classList.add('overlay-background');
+
+    let currentDate = new Date().toLocaleDateString();
+    document.getElementById('overlay-date').innerText = currentDate;
+
+    let storedName = localStorage.getItem('userName');
+    if (storedName) {
+        document.getElementById('overlay-username').innerText = storedName;
+    }
+
+    overlay.addEventListener('click', function() {
+        overlay.style.display = 'none';
+        document.body.classList.remove('overlay-background');
+    });
+}
+
