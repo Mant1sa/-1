@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Изучаем JavaScript</title>
+</head>
+<body>
+    <header>
+        <h1>Добро пожаловать в мир JavaScript</h1>
+    </header>
+    <section id="main-content">
+        <p>
+            JavaScript - это мощный язык сценариев, используемый для создания интерактивных веб-страниц. 
+            Он позволяет создавать динамический контент, обрабатывать события и многое другое.
+        </p>
+
+        <div id="user-greeting">
+            <!-- Здесь будет отображаться имя пользователя -->
+        </div>
+
+        <div id="tasks-menu">
+            <h2>Меню задач</h2>
+            <ul>
+                <li onclick="askName()">Задача 0: Приветствие пользователя</li>
+                <li onclick="calculateTriangleArea()">Задача 1: Рассчитать площадь треугольника</li>
+                <li onclick="compareStringLength()">Задача 2: Сравнить длину строк</li>
+                <li onclick="analyzeArray()">Задача 3: Анализ массива</li>
+                <li onclick="startTimer()">Задача 4: Таймер</li>
+                <button onclick="stopTimer()">Остановить таймер</button>
+                <li onclick="runQuiz()">Задача 5: Пройти тест по JavaScript</li>
+                <li onclick="showOverlay()">Задача 6: Показать заставку</li>
+            </ul>
+        </div>
+
+        <div id="timer-container"></div>
+    </section>
+
+    <div class="overlay" id="overlay">
+        <div class="overlay-content">
+            <h2>Добро пожаловать, <span id="overlay-username"></span>!</h2>
+            <p>Сегодня: <span id="overlay-date"></span></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
